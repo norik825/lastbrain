@@ -60,6 +60,93 @@
 
 
 
+
+
+
+
+
+
+
+
+
+#cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card-horizontal {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-width: 320px;
+  min-width: 280px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card-horizontal img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.card-horizontal h1 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.card-horizontal p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* мобильная адаптация */
+@media (max-width: 768px) {
+  #cardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-horizontal {
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .story-card {
   width: 300px;
   padding: 15px;
@@ -268,12 +355,22 @@
   padding: 0 1rem;
 }
 
+
+
+
 .home__card {
   position: relative;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
   text-align: center;
+  max-width: 360px;
+  height: auto;
+  margin: auto;
+  transform: scale(1.08); /* чуть увеличить */
 }
+
+
+
 
 
 .home__card:hover {
@@ -283,23 +380,30 @@
 
 .home__card-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 300px; /* было aspect-ratio */
   object-fit: cover;
-  opacity: 0.7; /* Сделать изображение чуть темнее */
+  opacity: 0.8;
+  border-radius: 20px;
 }
+
+
+
 
 
 .home__card-title2 {
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
   color: #fff;
-  background: rgba(0, 0, 0, 0.6); /* затемнение под текстом */
-  padding: 0.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
 }
+
+
+
 
 .home__card p {
   font-size: 0.95rem;
@@ -719,9 +823,11 @@ body.dark {
 }
 
 .home__cards {
-  grid-template-columns: 240px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
   justify-content: center;
 }
+
 
 .home__card {
   

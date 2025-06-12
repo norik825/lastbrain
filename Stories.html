@@ -34,7 +34,7 @@
 <a class="nav__link active-link" href="./Stories.html" style="color: rgb(188, 124, 248);">News</a>
 </li>
 <li class="nav__item">
-<a class="nav__link" href="./get hemlp.html" style="color: rgb(188, 124, 248);">Get Help</a>
+<a class="nav__link" href="./get hemlp.html" style="color: rgb(188, 124, 248);">Inspiration</a>
 </li>
 <li class="nav__item">
 <a class="nav__link btn" href="./get hemlp.html" target="_blank" style="background-color: blueviolet;">Sign up</a>
@@ -74,7 +74,7 @@
                       NEWS <br/>AND MEMORIES IS DON'T FORGETABLE
                     </p>
 </div>
-<h2 class="section__title margin-top_2" style="color: rgb(255, 114, 243);" >EVENTS & NEWS & STORIES</h2>          <br><br><br><br><br><br><br>
+<h2 class="section__title margin-top_2" style="color: rgb(255, 0, 234);" >EVENTS & NEWS & STORIES</h2>          <br><br><br><br><br><br><br>
 
 
 
@@ -207,15 +207,15 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((res) => res.json())
     .then((data) => {
       loader.style.display = "none";
-      container.innerHTML = ""; // Очистим
+      container.innerHTML = "";
 
       data.forEach((item) => {
         const card = document.createElement("div");
-        card.className = "home__card";
+        card.className = "card-horizontal";
         card.innerHTML = `
-          <img class="home__card-img" src="${item.image}" alt="${item.title}" style="width: 18rem; height: 18rem;" />
-          <h3 class="home__card-title2">${item.title}</h3>
-          <div class="home__card-shadow"></div>
+          <img src="${item.image}" alt="${item.title}" />
+          <h1>${item.title}</h1>
+          <p>${item.description || ""}</p>
         `;
         container.appendChild(card);
       });
@@ -226,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+
 
 
 </body>

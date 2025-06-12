@@ -34,7 +34,7 @@
 <a class="nav__link" href="./Stories.html" style="color: rgb(188, 124, 248);">News</a>
 </li>
 <li class="nav__item">
-<a class="nav__link active-link" href="./get hemlp.html" style="color: rgb(188, 124, 248);">Get Help</a>
+<a class="nav__link active-link" href="./get hemlp.html" style="color: rgb(188, 124, 248);">Inspiration</a>
 </li>
 <li class="nav__item">
 <a class="nav__link btn" href="./get hemlp.html" target="_blank" style="background-color: blueviolet;">Sign in</a>
@@ -63,53 +63,57 @@
 </header>
 <!--==================== MAIN ====================-->
 <main class="main">
+
+
 <!--==================== HOME ====================-->
 <section class="home section" id="home">
-<img alt="home image" class="home__bg" src="./assets/img/19.png"/>
-<div class="home__container container grid">
-<div class="home__data">
-<h1 class="home__title" style="color: rgb(188, 124, 248);" >
-                TALK TO SOMEONE
-            </h1>
-<p class="home__description" style="color: rgb(210, 171, 247);">
-                Building Mental Wellness Through Conversation
-            </p>
-</div>
-</div>
+  <img alt="home image" class="home__bg" src="./assets/img/19.png" />
+  <div class="home__container container grid">
+    <div class="home__data">
+      <h1 class="home__title" style="color: #fff;">
+        YOUR VOICE MATTERS
+      </h1>
+      <p class="home__description" style="color: #fff;">
+        Healing begins with sharing. Start your journey to mental strength today.
+      </p>
+    </div>
+  </div>
 
-<h1 class="center_text" style="color: rgb(210, 171, 247);">You don't have to do things Alone!</h1>
+  <h1 class="center_text" style="color: rgb(210, 171, 247);">
+    💬 Speak up. Connect. Grow together.
+  </h1>
 </section>
+
+
+
+
 <!--==================== JOIN ====================-->
 <section class="join section">
-<div class="join__container container grid">
-<div class="join__data">
-<h2 class="section__title" style="color: rgb(188, 124, 248);">
-                      You Are Not Alone. <br/>
-</h2>
-<p class="join__description" style="color: rgb(210, 171, 247);">
-                      You're Surrounded by caring Hearts.
-                      <br/>
-<br/>
-                      Get in touch with us for support and understanding.
-                    </p>
-<form id="contact-form" class="join__form contact-form">
-  <input class="join__input" name="email" id="email" placeholder="Enter your email" type="email" required/>
-    <input class="join__input" name="number" id="phone" placeholder="Enter your number" type="number" required/>
+  <div class="join__container container grid">
+    <div class="join__data">
+      <h2 class="section__title" style="color: rgb(188, 124, 248);">
+        Share Your Idea 💡
+      </h2>
+      <p class="join__description" style="color: rgb(210, 171, 247);">
+        Do you have an idea to improve BrainGame? Submit it here!
+      </p>
 
-  <input class="join__input" name="message" id="message" placeholder="A bit info about yourself" type="text" required/>
-  <button type="submit" class="btn" style="margin-top: 10px; background-color: blueviolet; color: white;">Submit</button>
-</form>
+      <form id="contact-form" class="join__form contact-form">
+        <input class="join__input" name="email" id="email" placeholder="Your email" type="email" required />
+        <input class="join__input" name="message" id="message" placeholder="Write your idea here..." type="text" required />
+        <button type="submit" class="btn" style="margin-top: 10px; background-color: blueviolet; color: white;">Submit</button>
+      </form>
 
-<p id="success-message" style="display:none;color:green;margin-top:10px;">✅ Successfully sent!</p>
+      <p id="success-message" style="display:none;color:green;margin-top:10px;">✅ Your idea has been submitted!</p>
+    </div>
 
-
-</div>
-<div class="join__image">
-<img alt="join image" class="join__img" src="https://images.squarespace-cdn.com/content/v1/59251f1cf5e2312a3e6144a5/1510313581746-GR3FOVUTVAKRB55VMBTO/counseling?format=1500w"/>
-<div class="join__shadow"></div>
-</div>
-</div>
+    <div class="join__image">
+      <img alt="join image" class="join__img" src="https://images.squarespace-cdn.com/content/v1/59251f1cf5e2312a3e6144a5/1510313581746-GR3FOVUTVAKRB55VMBTO/counseling?format=1500w" />
+      <div class="join__shadow"></div>
+    </div>
+  </div>
 </section>
+
 </main>
 <!--==================== FOOTER ====================-->
 <footer class="footer">
@@ -211,40 +215,40 @@
 <script crossorigin="anonymous" src="https://kit.fontawesome.com/f8e1a90484.js"></script>
 
 
+<script>
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
 
- <script>
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
-      const message = document.getElementById("message").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
 
-      const params = new URLSearchParams();
-      params.append("email", email);
-      params.append("phone", phone);
-      params.append("message", message);
+  const params = new URLSearchParams();
+  params.append("email", email);
+  params.append("message", message);
 
-      fetch("https://script.google.com/macros/s/AKfycbww_10a6VhvNo04Yd52hSFyelOpOMjrv4-EJAHQdjFOe1lNEcLH7wiHd1acOB2MwF-_sQ/exec", {
-        method: "POST",
-        body: params,
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.result === "success") {
-          document.getElementById("success-message").style.display = "block";
-          document.getElementById("contact-form").reset();
-          setTimeout(() => {
-            document.getElementById("success-message").style.display = "none";
-          }, 3000);
-        } else {
-          alert("❌ Something went wrong.");
-        }
-      })
-      .catch(() => {
-        alert("❌ Failed to send. Check internet connection.");
-      });
-    });
-  </script>
+  fetch("https://script.google.com/macros/s/AKfycbyZl8ZK3CclKgiN8FGF4HrBfdjMnvbTgDDhSKqft_BWUEjXS4EovWHweta6DDVD-Zqm2w/exec", {
+    method: "POST",
+    body: params,
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.result === "success") {
+      document.getElementById("success-message").style.display = "block";
+      document.getElementById("contact-form").reset();
+      setTimeout(() => {
+        document.getElementById("success-message").style.display = "none";
+      }, 3000);
+    } else {
+      alert("❌ Something went wrong.");
+    }
+  })
+  .catch(() => {
+    alert("❌ Failed to send. Check internet connection.");
+  });
+});
+</script>
+
+
 
 </body>
 </html>
