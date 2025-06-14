@@ -12,6 +12,44 @@
 <link href="assets/css/styles.css" rel="stylesheet"/>
 <title>BRAINGAME</title>
 </head>
+<style>
+  .highlights {
+  padding: 4rem 1rem;
+  background: #1e1e2f;
+  text-align: center;
+}
+
+.highlights .container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.highlight-card {
+  background-color: #2d2d44;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(188, 124, 248, 0.4);
+}
+
+.highlight-title {
+  font-size: 1.5rem;
+  color: rgb(188, 124, 248);
+  margin-bottom: 1rem;
+}
+
+.highlight-text {
+  font-size: 1rem;
+  color: rgb(210, 171, 247);
+}
+
+</style>
 <body class="body">
 <header class="navbar">
 
@@ -115,6 +153,30 @@
 </div>
 </div>
 </section>
+
+
+
+
+<section class="highlights section" id="highlights">
+  <div class="container grid">
+    <div class="highlight-card">
+      <h3 class="highlight-title"><span id="count1">1</span>+ Participants</h3>
+      <p class="highlight-text">Across 20+ colleges joined Brain Game since launch.</p>
+    </div>
+    <div class="highlight-card">
+      <h3 class="highlight-title"><span id="count2">1</span> Tournaments</h3>
+      <p class="highlight-text">Held in 5 major cities of Kazakhstan.</p>
+    </div>
+    <div class="highlight-card">
+      <h3 class="highlight-title"><span id="count3">1</span>% Motivation</h3>
+      <p class="highlight-text">Built by youth, for youth — with purpose and passion.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
 </main>
 <!--==================== FOOTER ====================-->
 <footer class="footer"  >
@@ -208,6 +270,31 @@
 <a class="scrollup" href="#" id="scroll-up">
 <i class="ri-arrow-up-line"></i>
 </a>
+
+
+<script>
+  function animateCount(id, target, speed) {
+    const element = document.getElementById(id);
+    let count = 1;
+    const step = Math.ceil(target / 100); // плавность
+    const interval = setInterval(() => {
+      count += step;
+      if (count >= target) {
+        count = target;
+        clearInterval(interval);
+      }
+      element.textContent = count;
+    }, speed);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    animateCount("count1", 500, 20); // 500+
+    animateCount("count2", 15, 50);  // 15
+    animateCount("count3", 100, 30); // 100%
+  });
+</script>
+
+
 <!--=============== SCROLLREVEAL ===============-->
 <script src="assets/js/scrollreveal.min.js"></script>
 <!--=============== MAIN JS ===============-->
